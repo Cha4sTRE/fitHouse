@@ -20,7 +20,7 @@ int interfaz2() {
 }
 Usuario nuevoRegistro() {
 	char opcion;
-	std::cout << "agregar usuario: "; std::cin >> opcion;
+	std::cout << "agregar usuario(y/n): "; std::cin >> opcion;
 	if (opcion == 'y' || opcion == 'Y') {
 
 		Usuario nuevo;
@@ -43,7 +43,9 @@ Usuario nuevoRegistro() {
 		return nuevo;
 	}
 	else {
+
 		return Usuario();
+
 	}
 
 }

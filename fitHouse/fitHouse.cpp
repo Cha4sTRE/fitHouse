@@ -27,8 +27,14 @@ while (true) {
 		while (true) {
 			
 			if (interfaz2()== 1) {
-				fitHouse.mostrarUsuarios();
+
+			
+				if (fitHouse.mostrarUsuarios() == 2) {
+					fitHouse.eliminarUsuario();
+				}
+
 				fitHouse.agregarUsuario(nuevoRegistro());
+
 			}
 			else if (interfaz2() == 2) { 
 				break; 

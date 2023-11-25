@@ -12,9 +12,9 @@ private:
 	std::list<std::string> _inventario;
 	std::list<Usuario> _listaUsuarios;
 public:
-	void mostrarUsuarios();
+	int mostrarUsuarios();
 	void agregarUsuario(Usuario nuevoUsuario);
-
+	void eliminarUsuario();
 };
 
 
