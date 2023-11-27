@@ -15,6 +15,7 @@ public:
 	int mostrarUsuarios();
 	void agregarUsuario(Usuario nuevoUsuario);
 	void eliminarUsuario();
+	void editarUsuario();
 };
 
 

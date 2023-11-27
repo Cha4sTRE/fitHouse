@@ -8,16 +8,19 @@ int posicion;
 int Gimnasio:: mostrarUsuarios() {
 	int opcion;
 	int contador = 0;
+
+	auto it = _listaUsuarios.begin();
+	system("cls");
 	for (auto& usuario : _listaUsuarios) {
 		std::cout << contador << "). " << usuario.getNombre() << " " << usuario.getApellido() << std::endl;
-		contador += 1;
+		contador++;
 	}
-
-	std::cout << ">>"; std::cin >> posicion;
+	std::cout << "[1]agregar usuario"; std::cin >> opcion;
+	if (opcion != 1) {
+	std::cout << "\nusuario: "; std::cin >> posicion;
 	if (_listaUsuarios.size() > 1) {
 		
 		system("cls");
-		auto it = _listaUsuarios.begin();
 		std::advance(it, posicion);
 		std::cout << "nombre: " << it->getNombre() << " " << it->getApellido() << std::endl;
 		std::cout << "sexo: " << it->getSexo() << std::endl;
@@ -33,21 +36,41 @@ int Gimnasio:: mostrarUsuarios() {
 		: it->calcularIMS() < 29.9? std::cout << "sobrepeso\n"
 		: it->calcularIMS() >= 30? std::cout << "obesidad\n"
 		: std::cout << "valor de IMC no categorizado\n";
+		std::cout << "fecha de registro: " << it->getFechaCreacion();
+		std::cout << "\n[2] editar\n[3] eliminar";
+		std::cout << ">>";
+		std::cin >> opcion;
 
 	}
-
-	std::cout << "[1] editar\n[2] eliminar\n";
-	std::cout << ">>";
-	std::cin >> opcion;
+	}
 	return opcion;
-}
 
+}
+void Gimnasio:: agregarUsuario(Usuario nuevoUsuario) {
+	_listaUsuarios.push_back(nuevoUsuario);
+}
 void Gimnasio::eliminarUsuario() {
 	auto it = _listaUsuarios.begin();
 	std::advance(it, posicion);
 	_listaUsuarios.erase(it);
 }
+void Gimnasio::editarUsuario() {
+	system("cls");
+	auto it = _listaUsuarios.begin();
+	std::string nombre, apellido, sexo;
+	int edad, cedula, telefono;
+	float peso, altura;
 
-void Gimnasio:: agregarUsuario(Usuario nuevoUsuario) {
-	_listaUsuarios.push_back(nuevoUsuario);
+	std::advance(it, posicion);
+	std::cout<< "||  editar a " << it->getNombre() << "   ||"<<std::endl;
+
+	std::cout << "Nombre: "; std::getline(std::cin >> std::ws, nombre); it->setNombre(nombre);
+	std::cout << "Apellido: "; std::getline(std::cin >> std::ws, apellido); it->setApellido(apellido);
+	std::cout << "Sexo: "; std::getline(std::cin >> std::ws, sexo); it->setSexo(sexo);
+
+	std::cout << "edad: "; std::cin >> edad; it->setEdad(edad);
+	std::cout << "cedula: "; std::cin >> cedula; it->setCedula(cedula);
+	std::cout << "telefono: "; std::cin >> telefono; it->setTelefono(telefono);
+	std::cout << "peso: "; std::cin >> peso; it->setPeso(peso);
+	std::cout << "altura: "; std::cin >> altura; it->setAltura(altura);
 }

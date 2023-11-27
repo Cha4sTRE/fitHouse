@@ -19,33 +19,27 @@ int interfaz2() {
 	return entrada;
 }
 Usuario nuevoRegistro() {
-	char opcion;
-	std::cout << "agregar usuario(y/n): "; std::cin >> opcion;
-	if (opcion == 'y' || opcion == 'Y') {
+	
 
-		Usuario nuevo;
-		std::string nombre, apellido, sexo;
-		int edad, cedula, telefono;
-		float peso, altura;
-		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	Usuario nuevo;
+	std::string nombre, apellido, sexo;
+	int edad, cedula, telefono;
+	float peso, altura;
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
-		system("cls");
-		std::cout << "||  registro de usuarios  ||";
-		std::cout << "\nnombre: "; std::getline(std::cin, nombre); nuevo.setNombre(nombre);
-		std::cout << "apellido: "; std::getline(std::cin, apellido); nuevo.setApellido(apellido);
-		std::cout << "sexo: "; std::getline(std::cin, sexo); nuevo.setSexo(sexo);
-		std::cout << "edad: "; std::cin >> edad; nuevo.setEdad(edad);
-		std::cout << "cedula: "; std::cin >> cedula; nuevo.setCedula(cedula);
-		std::cout << "telefono: "; std::cin >> telefono; nuevo.setTelefono(telefono);
-		std::cout << "peso: "; std::cin >> peso; nuevo.setPeso(peso);
-		std::cout << "altura: "; std::cin >> altura; nuevo.setAltura(altura);
+	system("cls");
+	std::cout << "||  registro de usuarios  ||";
+	std::cout << "\nnombre: "; std::getline(std::cin, nombre); nuevo.setNombre(nombre);
+	std::cout << "apellido: "; std::getline(std::cin, apellido); nuevo.setApellido(apellido);
+	std::cout << "sexo: "; std::getline(std::cin, sexo); nuevo.setSexo(sexo);
+	std::cout << "edad: "; std::cin >> edad; nuevo.setEdad(edad);
+	std::cout << "cedula: "; std::cin >> cedula; nuevo.setCedula(cedula);
+	std::cout << "telefono: "; std::cin >> telefono; nuevo.setTelefono(telefono);
+	std::cout << "peso: "; std::cin >> peso; nuevo.setPeso(peso);
+	std::cout << "altura: "; std::cin >> altura; nuevo.setAltura(altura);
 
-		return nuevo;
-	}
-	else {
-
-		return Usuario();
-
-	}
+	return nuevo;
+	
+	
 
 }
