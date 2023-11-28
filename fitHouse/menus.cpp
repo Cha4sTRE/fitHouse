@@ -38,8 +38,7 @@ Usuario nuevoRegistro() {
 	std::cout << "peso: "; std::cin >> peso; nuevo.setPeso(peso);
 	std::cout << "altura: "; std::cin >> altura; nuevo.setAltura(altura);
 
-	return nuevo;
-	
+	return nuevo;	
 	
 
 }

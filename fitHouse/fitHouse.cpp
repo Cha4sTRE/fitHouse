@@ -28,9 +28,9 @@ while (true) {
 			
 			if (interfaz2()== 1) {
 
-				if (fitHouse.mostrarUsuarios() == 1){fitHouse.agregarUsuario(nuevoRegistro());}
-				if (fitHouse.mostrarUsuarios() == 2) { fitHouse.editarUsuario(); }
-				if (fitHouse.mostrarUsuarios() == 3) {fitHouse.eliminarUsuario();}
+				if (fitHouse.mostrarUsuarios() == '1'){fitHouse.agregarUsuario(nuevoRegistro());}
+				if (fitHouse.mostrarUsuarios() == '2') { fitHouse.editarUsuario(); }
+				if (fitHouse.mostrarUsuarios() == '3') {fitHouse.eliminarUsuario();}
 			}
 			else if (interfaz2() == 2) { 
 				break; 

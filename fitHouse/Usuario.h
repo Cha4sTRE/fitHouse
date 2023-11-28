@@ -12,7 +12,7 @@ protected:
 	std::string _condicionMedica;
 	std::string _rutina;
 	std::string _historial;
-	std::chrono::system_clock::time_point fechaCreacion;
+	std::chrono::system_clock::time_point _fechaCreacion;
 public:
 	Usuario();
 	Usuario(std::string nombre, std::string apellido, std::string sexo, int edad, int cedula, int telefono,
@@ -21,18 +21,20 @@ public:
 	float calcularIMS();
 	inline float getPeso() { return _peso; }
 	inline float getAltura() { return _altura; }
-	inline std::string getFechaCreacion(){
-		std::time_t tiempo = std::chrono::system_clock::to_time_t(fechaCreacion);
-		// Estructura tm para obtener una representación más controlada del tiempo
-		std::tm tiempoStruct;
-		localtime_s(&tiempoStruct, &tiempo);
-		// Crear una cadena con el formato deseado
-		char buffer[20];
-		strftime(buffer, sizeof(buffer), "%Y-%m-%d %H:%M:%S", &tiempoStruct);
-		return std::string(buffer);
-	}
+	inline std::string getPlan() { return _plan; }
 	inline void setPeso(float peso) { _peso = peso; }
 	inline void setAltura(float altura) { _altura = altura; }
+	inline std::string getFechaCreacion() {
+		
+		std::time_t tiempo = std::chrono::system_clock::to_time_t(_fechaCreacion);
+		std::tm tiempoStruct;
+		localtime_s(&tiempoStruct, &tiempo);
+		char buffer[20];
+		strftime(buffer, sizeof(buffer), "%d/%m/%Y", &tiempoStruct);
+		return std::string(buffer);
+	}
+
+	void generarFactura();
 
 };
 

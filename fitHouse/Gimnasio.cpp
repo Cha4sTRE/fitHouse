@@ -6,7 +6,7 @@
 
 int posicion;
 int Gimnasio:: mostrarUsuarios() {
-	int opcion;
+	char opcion;
 	int contador = 0;
 
 	auto it = _listaUsuarios.begin();
@@ -15,9 +15,9 @@ int Gimnasio:: mostrarUsuarios() {
 		std::cout << contador << "). " << usuario.getNombre() << " " << usuario.getApellido() << std::endl;
 		contador++;
 	}
-	std::cout << "[1]agregar usuario"; std::cin >> opcion;
-	if (opcion != 1) {
-	std::cout << "\nusuario: "; std::cin >> posicion;
+	std::cout << "agregar usuario [1] si [2] no :"; std::cin >> opcion;
+	if (opcion != '1'||opcion=='\n') {
+	std::cout << "usuario: "; std::cin >> posicion;
 	if (_listaUsuarios.size() > 1) {
 		
 		system("cls");
@@ -29,14 +29,15 @@ int Gimnasio:: mostrarUsuarios() {
 		std::cout << "altura: " << it->getAltura() << std::endl;
 		std::cout << "cedula: " << it->getcedula() << std::endl;
 		std::cout << "telefono: " << it->getTelefono() << std::endl;
-		std::cout << "\nIMS(Indice de masa corporal): "<<it->calcularIMS() << std::endl<<it->getNombre()<<" tiene ";
+		std::cout << "fecha de registro: " << it->getFechaCreacion();
 
+		std::cout << "\nIMS(Indice de masa corporal): "<<it->calcularIMS() << std::endl<<it->getNombre()<<" tiene ";
 		it->calcularIMS() < 18.5? std::cout << "bajo peso\n"
 		: it->calcularIMS() < 24.9? std::cout << "peso normal\n"
 		: it->calcularIMS() < 29.9? std::cout << "sobrepeso\n"
 		: it->calcularIMS() >= 30? std::cout << "obesidad\n"
 		: std::cout << "valor de IMC no categorizado\n";
-		std::cout << "fecha de registro: " << it->getFechaCreacion();
+		it->generarFactura();
 		std::cout << "\n[2] editar\n[3] eliminar";
 		std::cout << ">>";
 		std::cin >> opcion;
