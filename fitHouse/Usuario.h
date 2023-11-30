@@ -8,7 +8,7 @@ class Usuario: public Persona
 protected:
 	float _peso;
 	float _altura;
-	std::string _plan;
+	std::string _plan="mensual";
 	std::string _condicionMedica;
 	std::string _rutina;
 	std::string _historial;
