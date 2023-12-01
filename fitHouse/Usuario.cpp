@@ -31,6 +31,7 @@ void error_handler(HPDF_STATUS   error_no, HPDF_STATUS   detail_no, void* user_d
 		(int)detail_no);
 	throw std::exception();
 }
+
 float Usuario::calcularIMS() {
 	float indice = (_peso / (_altura * _altura));
 	return indice;

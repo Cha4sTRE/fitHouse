@@ -18,12 +18,14 @@ public:
 	Usuario(std::string nombre, std::string apellido, std::string sexo, int edad, int cedula, int telefono,
 		float peso, float altura, std::string plan, std::string condicionMedica, std::string rutina, std::string historial);
 
-	float calcularIMS();
 	inline float getPeso() { return _peso; }
 	inline float getAltura() { return _altura; }
 	inline std::string getPlan() { return _plan; }
 	inline void setPeso(float peso) { _peso = peso; }
 	inline void setAltura(float altura) { _altura = altura; }
+
+	float calcularIMS();
+	void generarFactura();
 	inline std::string getFechaCreacion() {
 		
 		std::time_t tiempo = std::chrono::system_clock::to_time_t(_fechaCreacion);
@@ -34,7 +36,6 @@ public:
 		return std::string(buffer);
 	}
 
-	void generarFactura();
 
 };
 
