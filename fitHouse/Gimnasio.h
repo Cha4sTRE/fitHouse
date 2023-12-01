@@ -17,4 +17,3 @@ public:
 	void eliminarUsuario();
 	void editarUsuario();
 };
-
